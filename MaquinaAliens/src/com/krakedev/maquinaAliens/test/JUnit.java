@@ -103,4 +103,34 @@ public class JUnit {
 			assertEquals(0, alien.getNumeroPies());
 		}
 
+		@Test
+		public void testAlienPequeñoNoPocosOjos() {
+			Aliens alien = new Aliens(8, "verde");
+
+			boolean resultado = alien.agregarOjos(4);
+
+			assertFalse(resultado);
+			assertEquals(0, alien.getNumeroOjos());
+		}
+		
+		@Test
+		public void testAlienMedianoOjosNormal() {
+			Aliens alien = new Aliens(15, "azul");
+
+			boolean resultado = alien.agregarOjos(5);
+
+			assertTrue(resultado);
+			assertEquals(5, alien.getNumeroOjos());
+		}
+		
+		@Test
+		public void testAlienGrandeMuchosOjos() {
+			Aliens alien = new Aliens(25, "rojo");
+
+			alien.agregarOjos(6);
+			boolean resultado = alien.agregarOjos(2);
+
+			assertFalse(resultado);
+			assertEquals(6, alien.getNumeroOjos());
+		}
 }
