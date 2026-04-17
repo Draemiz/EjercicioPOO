@@ -133,4 +133,17 @@ public class JUnit {
 			assertFalse(resultado);
 			assertEquals(6, alien.getNumeroOjos());
 		}
+		
+		@Test
+		public void testPrecioTotalAlien() {
+			Aliens alien = new Aliens(10, "verde");
+
+			alien.agregarBrazos(2);
+			alien.agregarPiernas(2);
+			alien.agregarOjos(2);
+
+			double esperado = 2.0 + (4 * 1.0) + (2 * 0.5);
+
+			assertEquals(esperado, alien.getPrecioTotal(), 0.01);
+		}
 }
