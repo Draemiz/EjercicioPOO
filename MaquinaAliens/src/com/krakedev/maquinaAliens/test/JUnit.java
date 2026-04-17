@@ -146,4 +146,52 @@ public class JUnit {
 
 			assertEquals(esperado, alien.getPrecioTotal(), 0.01);
 		}
+		
+		//Test para pruebas finales 
+		
+		@Test
+		public void testPrecioTotalCompleto() {
+			Aliens alien = new Aliens(10, "verde");
+
+			alien.agregarBrazos(2);
+			alien.agregarPiernas(2);
+			alien.agregarOjos(2);
+
+			assertEquals(7.0, alien.getPrecioTotal(), 0.01);
+		}
+		
+		@Test
+		public void testAgregarElementosCorrectamente() {
+			Aliens alien = new Aliens(15, "azul");
+
+			boolean brazos = alien.agregarBrazos(3);
+			boolean piernas = alien.agregarPiernas(3);
+
+			assertTrue(brazos);
+			assertTrue(piernas);
+			assertEquals(3, alien.getNumeroBrazos());
+			assertEquals(3, alien.getNumeroPies());
+		}
+		
+		@Test
+		public void testNoPermiteMasDe10Extremidades() {
+			Aliens alien = new Aliens(10, "rojo");
+
+			alien.agregarBrazos(6);
+			boolean resultado = alien.agregarPiernas(5);
+
+			assertFalse(resultado);
+			assertEquals(6, alien.getNumeroBrazos());
+			assertEquals(0, alien.getNumeroPies());
+		}
+		
+		@Test
+		public void testNoPermiteExcesoDeOjos() {
+			Aliens alien = new Aliens(8, "verde"); 
+
+			boolean resultado = alien.agregarOjos(4);
+
+			assertFalse(resultado);
+			assertEquals(0, alien.getNumeroOjos());
+		}
 }
