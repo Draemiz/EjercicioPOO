@@ -57,6 +57,24 @@ public class Aliens {
 		return precioCuerpo;
 	}
 	
+	public boolean agregarBrazos(int cantidad) {
+		if (this.numeroBrazos + this.numeroPies + cantidad <= 10) {
+			this.numeroBrazos += cantidad;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean agregarPiernas(int cantidad) {
+		if (this.numeroBrazos + this.numeroPies + cantidad <= 10) {
+			this.numeroPies += cantidad;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public void imprimir() {
 		System.out.println("Tamaño: " + tamanio);
 		System.out.println("Color: " + color);
