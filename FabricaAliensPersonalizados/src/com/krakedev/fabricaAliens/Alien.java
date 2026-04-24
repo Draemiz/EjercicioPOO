@@ -77,6 +77,10 @@ public class Alien {
 		return precioCuerpo;
 	}
 	
+	public double getPrecioTotal() {
+		return precioTotal;
+	}
+
 	public void imprimir() {
 	    System.out.println("Tamaño: " + tamanio);
 	    System.out.println("Color: " + color);
